@@ -14,3 +14,12 @@ AndroidStudy/.idea/misc.xml
 AndroidStudy/.idea/modules.xml
 
 AndroidStudy/.idea/runConfigurations.xml
+
+*/.classpath
+*/.project
+*/.settings/*
+*/bin/*
+*/libs/*
+*/gen/*
+*/res/*
+*/proguard-project.txt
