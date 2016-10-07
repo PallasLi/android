@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hr_leave_type">请假类型</string>
+    <string name="hr_ask_for_leave_form_start_time">开始时间</string>
+    <string name="hr_ask_for_leave_form_end_time">结束时间</string>
+    <string name="hr_ask_for_leave_form_title">标题</string>
+    <string name="hr_ask_for_leave_form_reason">请假原因</string>
+    <string name="hr_ask_for_leave_form_dateSet">设置日期</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--流程模块-->
+    <string name="bpm_mytodo">我的待办</string>
+    <string name="bpm_mydone">我的已办</string>
+    <string name="bpm_myapply">我的申请</string>
+    <!--审批信息-->
+    <string name="bpm_audit_remark">办理意见</string>
+    <string name="bpm_audit_result">办理结果</string>
+    <string name="bpm_audit_approve">同意</string>
+    <string name="bpm_audit_reject">拒绝</string>
+    <string name="bpm_next_node_name">下一环节名称</string>
+    <string name="bpm_next_node_handler">下一环节处理人</string>
+</resources>

@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pallasli.oa.HomeActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_bpm_mytodo"
+        android:orderInCategory="100"
+        android:title="@string/bpm_mytodo"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_bpm_myapply"
+        android:orderInCategory="100"
+        android:title="@string/bpm_myapply"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_bpm_mydone"
+        android:orderInCategory="100"
+        android:title="@string/bpm_mydone"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_hr"
+        android:orderInCategory="100"
+        android:title="@string/hr"
+        app:showAsAction="never" />
+</menu>
