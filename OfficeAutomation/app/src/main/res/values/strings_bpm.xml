@@ -4,6 +4,9 @@
     <string name="bpm_mytodo">我的待办</string>
     <string name="bpm_mydone">我的已办</string>
     <string name="bpm_myapply">我的申请</string>
+
+    <!--按钮-->
+    <string name="bpm_action_commit">提交</string>
     <!--审批信息-->
     <string name="bpm_audit_remark">办理意见</string>
     <string name="bpm_audit_result">办理结果</string>

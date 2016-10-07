@@ -9,8 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:textSize="50px"
-        android:text="流程\n名"/>
+        android:text="流程\n名"
+        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,8 +21,8 @@
             android:id="@+id/bpm_instance_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50px"
-            android:text="流程标题"/>
+            android:text="流程标题"
+            android:textSize="15dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,21 +33,17 @@
                 android:id="@+id/bpm_process_starter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40px"
-                android:text="申请人"/>
+                android:text="申请人"
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/bpm_process_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:textSize="40px"
-                android:text="2020-09-09 10:56:34"/>
+                android:layout_marginLeft="30dp"
+                android:text="2020-09-09 10:56:34"
+                android:textSize="12dp" />
 
         </LinearLayout>
-
-
     </LinearLayout>
-
-
 </LinearLayout>

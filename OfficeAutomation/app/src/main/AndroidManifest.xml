@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pallasli.officeautomation">
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />s
 
     <application
         android:allowBackup="true"
@@ -15,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".hr.ApplyForLeaveActivity" />
+        <activity android:name=".hr.AskForLeaveActivity" />
         <activity android:name=".bpm.MyTodoListActivity" />
         <activity android:name=".bpm.MyDoneListActivity" />
         <activity android:name=".bpm.MyApplyListActivity" />
@@ -47,6 +50,7 @@
         <activity android:name=".personal.FavoriteListActivity" />
         <activity android:name=".personal.MessageListActivity" />
         <activity android:name=".bpm.FormDataActivity" />
+        <activity android:name=".HomeActivity" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -55,6 +59,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>

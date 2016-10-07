@@ -11,28 +11,6 @@
     tools:context="com.pallasli.officeautomation.bpm.AuditActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bpm_next_node_name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="环节名" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bpm_next_node_handler" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="处理岗，处理人" />
-
-    <TextView
         android:id="@+id/bpm_audit_label_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,6 +34,28 @@
     </RadioGroup>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bpm_next_node_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="环节名" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bpm_next_node_handler" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="处理岗，处理人" />
+
+    <TextView
         android:id="@+id/bpm_audit_label_remark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,5 +66,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minLines="3"/>
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/bpm_action_commit"/>
 </LinearLayout>
