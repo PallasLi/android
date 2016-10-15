@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im.dummy;
+package com.pallasli.bpmoa.im.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * <p/>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class WebchatLinkmanListContent {
+public class FriendListContent {
 
     /**
      * An array of sample (dummy) items.

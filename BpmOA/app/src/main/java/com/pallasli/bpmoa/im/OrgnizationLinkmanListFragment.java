@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.dummy.OrgnizationLinkmanListContent;
-import com.pallasli.bpmoa.community.im.dummy.OrgnizationLinkmanListContent.DummyItem;
+import com.pallasli.bpmoa.im.dummy.OrgnizationLinkmanListContent;
+import com.pallasli.bpmoa.im.dummy.OrgnizationLinkmanListContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.

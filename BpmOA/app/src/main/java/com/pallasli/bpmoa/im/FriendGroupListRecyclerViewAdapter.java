@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.MobileLinkmanListFragment.OnListFragmentInteractionListener;
-import com.pallasli.bpmoa.community.im.dummy.MobileLinkmanListContent.DummyItem;
+import com.pallasli.bpmoa.im.FriendGroupListFragment.OnListFragmentInteractionListener;
+import com.pallasli.bpmoa.im.dummy.FriendGroupListContent.DummyItem;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MobileLinkmanListRecyclerViewAdapter extends RecyclerView.Adapter<MobileLinkmanListRecyclerViewAdapter.ViewHolder> {
+public class FriendGroupListRecyclerViewAdapter extends RecyclerView.Adapter<FriendGroupListRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MobileLinkmanListRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public FriendGroupListRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -30,7 +30,7 @@ public class MobileLinkmanListRecyclerViewAdapter extends RecyclerView.Adapter<M
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_community_im_mobile_concacts, parent, false);
+                .inflate(R.layout.fragment_community_im_friend_group_list_row, parent, false);
         return new ViewHolder(view);
     }
 

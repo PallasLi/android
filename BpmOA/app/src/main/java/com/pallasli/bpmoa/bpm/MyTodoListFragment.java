@@ -1,6 +1,7 @@
 package com.pallasli.bpmoa.bpm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,12 +9,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.pallasli.bpmoa.HomeFragmentUtils;
 import com.pallasli.bpmoa.R;
 import com.pallasli.bpmoa.bpm.dummy.MyDoneListContent;
 import com.pallasli.bpmoa.bpm.dummy.MyDoneListContent.DummyItem;
+import com.pallasli.bpmoa.bpm.dummy.MyTodoListContent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +26,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A fragment representing a list of Items.
@@ -102,9 +111,51 @@ public class MyTodoListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bpm_my_todo_list, container, false);
 
+
+        myTodoList = (ListView) view.findViewById(R.id.bpm_my_todo_list);//得到ListView对象的引用 /*为ListView设置Adapter来绑定数据*/
+        //        myTodoList.setAdapter(new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, strs));
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.fragment_bpm_my_todo_list_row,
+                new String[]{"title", "info", "img"},
+                new int[]{R.id.title, R.id.info, R.id.user_photo});
+        myTodoList.setAdapter(adapter);
+        myTodoList.setItemsCanFocus(true);
+        myTodoList.setOnItemClickListener(new ListView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HomeFragmentUtils.openBpmAuditragment(getActivity());
+            }
+        });
+
         return view;
     }
 
+    ListView myTodoList;
+
+    private List<Map<String, Object>> getData() {
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("title", "G1");
+        map.put("info", "google 1");
+//        map.put("img", R.drawable.i1);
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("title", "G2");
+        map.put("info", "google 2");
+//        map.put("img", R.drawable.i2);
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("title", "G3");
+        map.put("info", "google 3");
+//        map.put("img", R.drawable.i3);
+        list.add(map);
+
+        return list;
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -120,12 +171,13 @@ public class MyTodoListFragment extends Fragment {
     public void onListItemClick(ListView parent, View v,
                                 int position, long id) {
         Log.d(getClass().getName(), "onListItemClick");
-        MyDoneListContent item;
-
+        MyTodoListContent item;
+        HomeFragmentUtils.openBpmAuditragment(getActivity());
         Toast.makeText(getActivity(),
-                "You have selected " +  MyDoneListContent.ITEMS.get(position),
+                "You have selected " + MyDoneListContent.ITEMS.get(position),
                 Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public void onDetach() {
         super.onDetach();

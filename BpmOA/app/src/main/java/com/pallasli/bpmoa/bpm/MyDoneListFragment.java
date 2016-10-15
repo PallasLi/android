@@ -8,13 +8,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.pallasli.bpmoa.HomeFragmentUtils;
 import com.pallasli.bpmoa.R;
 import com.pallasli.bpmoa.WebRequestUtils;
 import com.pallasli.bpmoa.bpm.dummy.MyDoneListContent;
 import com.pallasli.bpmoa.bpm.dummy.MyDoneListContent.DummyItem;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A fragment representing a list of Items.
@@ -61,8 +69,45 @@ public class MyDoneListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bpm_my_done_list, container, false);
+        myDoneList = (ListView) view.findViewById(R.id.bpm_my_done_list);//得到ListView对象的引用 /*为ListView设置Adapter来绑定数据*/
 
-        return view;
+        SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(), R.layout.fragment_bpm_my_done_list_row,
+                new String[]{"title", "info", "img"},
+                new int[]{R.id.title, R.id.info, R.id.user_photo});
+        myDoneList.setAdapter(adapter);
+        myDoneList. setOnItemClickListener(new ListView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HomeFragmentUtils.openFormDataFragment(getActivity());
+            }
+        });
+        return  view;
+    }
+
+    ListView myDoneList;
+    private List<Map<String, Object>> getData() {
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("title", "G1");
+        map.put("info", "google 1");
+//        map.put("img", R.drawable.i1);
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("title", "G2");
+        map.put("info", "google 2");
+//        map.put("img", R.drawable.i2);
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("title", "G3");
+        map.put("info", "google 3");
+//        map.put("img", R.drawable.i3);
+        list.add(map);
+
+        return list;
     }
 
 

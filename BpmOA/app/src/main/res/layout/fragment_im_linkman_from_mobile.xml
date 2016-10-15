@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".community.im.MobileLinkmanListFragment"
-    tools:listitem="@layout/fragment_community_im_mobile_concacts_row" />
+    tools:context=".im.MobileLinkmanListFragment"
+    tools:listitem="@layout/fragment_im_linkman_from_mobile_row" />

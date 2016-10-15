@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class WebRequestUtils {
 
     private String result;
 
-    public   void openAsyncRequest(Activity activity) {
+    public   void openAsyncRequest(final Activity activity) {
 
         AsyncTask<String, Void, String> asyncTask = new AsyncTask<String, Void, String>() {
             @Override
@@ -34,18 +35,25 @@ public class WebRequestUtils {
                 HttpURLConnection
                         connection = null;
                 try {
-                    URL url = new URL("http://192.168.23.1:8080/TestProject/GetTest");
+                    URL url = new URL("http://192.168.43.245:8060/base/leave/add");
                     connection = (HttpURLConnection) url.openConnection();
                     // 设置请求方法，默认是GET
-                    connection.setRequestMethod("GET");
+                    connection.setRequestMethod("POST");
                     // 设置字符集
                     connection.setRequestProperty("Charset", "UTF-8");
-                    // 设置文件类型
-                    connection.setRequestProperty("Content-Type", "text/xml; charset=UTF-8");
-                    // 设置请求参数，可通过Servlet的getHeader()获取
-                    connection.setRequestProperty("Cookie", "AppName=" + URLEncoder.encode("你好", "UTF-8"));
-                    // 设置自定义参数
-                    connection.setRequestProperty("MyProperty", "this is me!");
+//                    // 设置文件类型
+//                    connection.setRequestProperty("Content-Type", "text/xml; charset=UTF-8");
+//                    // 设置请求参数，可通过Servlet的getHeader()获取
+//                    connection.setRequestProperty("Cookie", "AppName=" + URLEncoder.encode("你好", "UTF-8"));
+//                    // 设置自定义参数
+//                    connection.setRequestProperty("MyProperty", "this is me!");
+//                    connection.setRequestProperty("leavename", "标题");
+//                    connection.setRequestProperty("memo", "memo");
+
+                    connection.setDoInput(true);
+                    StringBuffer urlparams=new StringBuffer();
+                    urlparams.append("leavename=标题&memo=memo");
+                    connection.getOutputStream().write(urlparams.toString().getBytes());
 
                     if (connection.getResponseCode() == 200) {
                         InputStream is = connection.getInputStream();
@@ -70,13 +78,15 @@ public class WebRequestUtils {
                     }
                 }
 
-                return null;
+                return result;
             }
 
             private Handler getHandler = new Handler() {
                 public void handleMessage(android.os.Message msg) {
                     if (msg.what == 0 && result != null) {
-                        mTvMsg.setText(result);
+                        //mTvMsg.setText(result);
+                        Toast.makeText(activity,result,Toast.LENGTH_LONG);
+
                     }
                 }
 
@@ -85,15 +95,16 @@ public class WebRequestUtils {
 
             @Override
             protected void onPostExecute(String result) {
+                pd.dismiss();// 消除dialog
                 if (result != null) {
-                    tv.setText(result);
-                    pd.dismiss();// 消除dialog
+                    Toast.makeText(activity,result,Toast.LENGTH_LONG);
+                    //tv.setText(result);
                 }
                 super.onPostExecute(result);
             }
         };
         pd = ProgressDialog.show(activity, "请稍后。。。", "正在请求数据");
-        asyncTask.execute("http://10.0.2.2:8080/My_Service/webdate.jsp?name=haha&age=hh");
+        asyncTask.execute("http://localhost:8060/base/leave/add");
     }
 
 }

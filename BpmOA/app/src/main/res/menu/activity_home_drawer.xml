@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+
+        >
         <item
             android:id="@+id/nav_bpm_start"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/fragment_bpm_start" />
+            android:title="@string/fragment_bpm_start"
+
+            />
         <item
             android:id="@+id/nav_bpm_my_apply"
             android:icon="@drawable/ic_menu_camera"
@@ -24,8 +28,29 @@
             android:title="@string/fragment_bpm_my_draft" />
     </group>
 
-    <item android:title="@string/hr_business">
+    <item android:title="@string/hr_business"
+        >
         <menu>
+            <item
+                android:id="@+id/nav_personal_care"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/fragment_personal_care" />
+            <item
+                android:id="@+id/nav_personal_favorite"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/fragment_personal_favorite" />
+            <item
+                android:id="@+id/nav_personal_upload"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/fragment_personal_upload" />
+            <item
+                android:id="@+id/nav_personal_download"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/fragment_personal_download" />
+            <item
+                android:id="@+id/nav_personal_setting"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/fragment_personal_setting" />
             <item
                 android:id="@+id/nav_hr_ask_for_leave"
                 android:icon="@drawable/ic_menu_camera"

@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.dummy.MobileLinkmanListContent;
-import com.pallasli.bpmoa.community.im.dummy.MobileLinkmanListContent.DummyItem;
+import com.pallasli.bpmoa.im.dummy.MobileLinkmanListContent;
+import com.pallasli.bpmoa.im.dummy.MobileLinkmanListContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -57,7 +57,7 @@ public class MobileLinkmanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community_im_mobile_concacts, container, false);
+        View view = inflater.inflate(R.layout.fragment_im_linkman_from_mobile, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {

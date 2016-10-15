@@ -2,7 +2,9 @@ package com.pallasli.bpmoa;
 
 import android.app.Activity;
 import android.app.usage.UsageEvents;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.GestureDetector;
@@ -17,6 +19,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity
@@ -185,6 +190,48 @@ public class HomeActivity extends AppCompatActivity
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header=navigationView.getHeaderView(0);
+        ImageView userPhotoView = (ImageView)header. findViewById(R.id.user_photo);
+        TextView userCaptionView = (TextView)header. findViewById(R.id.user_caption);
+        TextView userEmailView = (TextView)header. findViewById(R.id.user_email);
+        userPhotoView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                HomeFragmentUtils.openPersonalUserInfoFragment(homeActivity);
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        userCaptionView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                HomeFragmentUtils.openPersonalUserInfoFragment(homeActivity);
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        userEmailView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                HomeFragmentUtils.openPersonalUserInfoFragment(homeActivity);
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -232,14 +279,21 @@ public class HomeActivity extends AppCompatActivity
             HomeFragmentUtils.openBpmMyDoneFragment(homeActivity);
         } else if (id == R.id.nav_bpm_my_draft) {
             HomeFragmentUtils.openBpmMyDraftFragment(homeActivity);
-        } else if (id == R.id.nav_hr_ask_for_leave) {
-            HomeFragmentUtils.openHrAskForLeaveFragment(homeActivity);
+        } else if (id == R.id.nav_personal_care) {
+            HomeFragmentUtils.openPersonalCareListFragment(homeActivity);
+        } else if (id == R.id.nav_personal_favorite) {
+            HomeFragmentUtils.openPersonalFavoriteListFragment(homeActivity);
+        } else if (id == R.id.nav_personal_upload) {
+            HomeFragmentUtils.openPersonalUploadFileListFragment(homeActivity);
+        } else if (id == R.id.nav_personal_download) {
+            HomeFragmentUtils.openPersonalDownloadFileListFragment(homeActivity);
+        } else if (id == R.id.nav_personal_setting) {
+            HomeFragmentUtils.openPersonalUserSettingFragment(homeActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 }

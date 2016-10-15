@@ -3,8 +3,9 @@ package com.pallasli.bpmoa;
 import android.app.Activity;
 import android.app.Fragment;
 
+import com.pallasli.bpmoa.bpm.AuditFragment;
+import com.pallasli.bpmoa.bpm.FormDataFragment;
 import com.pallasli.bpmoa.bpm.MyApplyListFragment;
-import com.pallasli.bpmoa.bpm.MyApplyProcessListFragment;
 import com.pallasli.bpmoa.bpm.MyDoneListFragment;
 import com.pallasli.bpmoa.bpm.MyDraftListFragment;
 import com.pallasli.bpmoa.bpm.MyTodoListFragment;
@@ -14,16 +15,16 @@ import com.pallasli.bpmoa.community.ZoneFragment;
 import com.pallasli.bpmoa.community.activity.NoticePublishFragment;
 import com.pallasli.bpmoa.community.activity.OrgnizationActivityPublishFragment;
 import com.pallasli.bpmoa.community.activity.VoteInitiateFragment;
-import com.pallasli.bpmoa.community.im.ChatFragment;
-import com.pallasli.bpmoa.community.im.FriendListFragment;
-import com.pallasli.bpmoa.community.im.MobileLinkmanListFragment;
-import com.pallasli.bpmoa.community.im.OrgnizationLinkmanListFragment;
-import com.pallasli.bpmoa.community.im.QqLinkmanListFragment;
-import com.pallasli.bpmoa.community.im.WebchatLinkmanListFragment;
+import com.pallasli.bpmoa.im.ChatFragment;
+import com.pallasli.bpmoa.im.FriendListFragment;
+import com.pallasli.bpmoa.im.MobileLinkmanListFragment;
+import com.pallasli.bpmoa.im.OrgnizationLinkmanListFragment;
+import com.pallasli.bpmoa.im.QqLinkmanListFragment;
+import com.pallasli.bpmoa.im.WebchatLinkmanListFragment;
 import com.pallasli.bpmoa.community.zone.WorkGroupAddFragment;
 import com.pallasli.bpmoa.community.zone.WorkGroupListFragment;
 import com.pallasli.bpmoa.hr.AskForLeaveFragment;
-import com.pallasli.bpmoa.community.im.FriendGroupListFragment;
+import com.pallasli.bpmoa.im.FriendGroupListFragment;
 import com.pallasli.bpmoa.personal.CareListFragment;
 import com.pallasli.bpmoa.personal.DownloadFileListFragment;
 import com.pallasli.bpmoa.personal.FavoriteListFragment;
@@ -319,4 +320,11 @@ public class HomeFragmentUtils {
         activity.getFragmentManager().beginTransaction().replace(R.id.main_content, fragment).commit();
     }
 
+    public static void openBpmAuditragment(Activity activity) {
+        resetFragment(activity, R.string.fragment_bpm_audit, new AuditFragment());
+    }
+
+    public static void openFormDataFragment(Activity activity) {
+        resetFragment(activity, R.string.fragment_bpm_form_data, new FormDataFragment());
+    }
 }

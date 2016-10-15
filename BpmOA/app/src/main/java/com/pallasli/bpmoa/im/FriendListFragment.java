@@ -1,8 +1,11 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+//import android.support.v7.widget.GridLayoutManager;
+//import android.support.v7.widget.LinearLayoutManager;
+//import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.dummy.WebchatLinkmanListContent;
-import com.pallasli.bpmoa.community.im.dummy.WebchatLinkmanListContent.DummyItem;
+import com.pallasli.bpmoa.im.dummy.FriendListContent;
+import com.pallasli.bpmoa.im.dummy.FriendListContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -20,7 +23,7 @@ import com.pallasli.bpmoa.community.im.dummy.WebchatLinkmanListContent.DummyItem
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class WebchatLinkmanListFragment extends Fragment {
+public class FriendListFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -32,13 +35,13 @@ public class WebchatLinkmanListFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public WebchatLinkmanListFragment() {
+    public FriendListFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static WebchatLinkmanListFragment newInstance(int columnCount) {
-        WebchatLinkmanListFragment fragment = new WebchatLinkmanListFragment();
+    public static FriendListFragment newInstance(int columnCount) {
+        FriendListFragment fragment = new FriendListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -57,7 +60,7 @@ public class WebchatLinkmanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community_im_webchat_linkman_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_community_im_friend_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -68,7 +71,7 @@ public class WebchatLinkmanListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new WebchatLinkmanListRecyclerViewAdapter(WebchatLinkmanListContent.ITEMS, mListener));
+            recyclerView.setAdapter(new FriendListRecyclerViewAdapter(FriendListContent.ITEMS, mListener));
         }
         return view;
     }

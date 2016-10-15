@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.dummy.FriendGroupListContent;
-import com.pallasli.bpmoa.community.im.dummy.FriendGroupListContent.DummyItem;
-import com.pallasli.bpmoa.community.im.dummy.MobileLinkmanListContent;
+import com.pallasli.bpmoa.im.dummy.WebchatLinkmanListContent;
+import com.pallasli.bpmoa.im.dummy.WebchatLinkmanListContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -21,7 +20,7 @@ import com.pallasli.bpmoa.community.im.dummy.MobileLinkmanListContent;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class FriendGroupListFragment extends Fragment {
+public class WebchatLinkmanListFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -33,13 +32,13 @@ public class FriendGroupListFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public FriendGroupListFragment() {
+    public WebchatLinkmanListFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static FriendGroupListFragment newInstance(int columnCount) {
-        FriendGroupListFragment fragment = new FriendGroupListFragment();
+    public static WebchatLinkmanListFragment newInstance(int columnCount) {
+        WebchatLinkmanListFragment fragment = new WebchatLinkmanListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -58,7 +57,8 @@ public class FriendGroupListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community_im_friend_group_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_community_im_webchat_linkman_list, container, false);
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -68,7 +68,7 @@ public class FriendGroupListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new FriendGroupListRecyclerViewAdapter(FriendGroupListContent.ITEMS, mListener));
+            recyclerView.setAdapter(new WebchatLinkmanListRecyclerViewAdapter(WebchatLinkmanListContent.ITEMS, mListener));
         }
         return view;
     }

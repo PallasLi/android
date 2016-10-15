@@ -1,4 +1,4 @@
-package com.pallasli.bpmoa.community.im;
+package com.pallasli.bpmoa.im;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pallasli.bpmoa.R;
-import com.pallasli.bpmoa.community.im.dummy.QqLinkmanListContent;
-import com.pallasli.bpmoa.community.im.dummy.QqLinkmanListContent.DummyItem;
+import com.pallasli.bpmoa.im.dummy.FriendGroupListContent;
+import com.pallasli.bpmoa.im.dummy.FriendGroupListContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -20,7 +20,7 @@ import com.pallasli.bpmoa.community.im.dummy.QqLinkmanListContent.DummyItem;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class QqLinkmanListFragment extends Fragment {
+public class FriendGroupListFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -32,13 +32,13 @@ public class QqLinkmanListFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public QqLinkmanListFragment() {
+    public FriendGroupListFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static QqLinkmanListFragment newInstance(int columnCount) {
-        QqLinkmanListFragment fragment = new QqLinkmanListFragment();
+    public static FriendGroupListFragment newInstance(int columnCount) {
+        FriendGroupListFragment fragment = new FriendGroupListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -57,8 +57,7 @@ public class QqLinkmanListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_community_im_qq_concacts, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_community_im_friend_group_list, container, false);
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -68,7 +67,7 @@ public class QqLinkmanListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new QqLinkmanListRecyclerViewAdapter(QqLinkmanListContent.ITEMS, mListener));
+            recyclerView.setAdapter(new FriendGroupListRecyclerViewAdapter(FriendGroupListContent.ITEMS, mListener));
         }
         return view;
     }

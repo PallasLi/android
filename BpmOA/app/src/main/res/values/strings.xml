@@ -80,4 +80,11 @@
     <string name="fragment_address">通讯录</string>
     <string name="fragment_zone">朋友圈</string>
     <string name="fragment_message">信息</string>
+    <string name="fragment_bpm_audit">审批</string>
+    <string name="bpm_start_process">提交</string>
+    <string name="fragment_bpm_form_data">业务表单</string>
+    <string name="fragment_personal_care">我的关注</string>
+    <string name="fragment_personal_favorite">我的收藏</string>
+    <string name="fragment_personal_upload">我的上传</string>
+    <string name="fragment_personal_download">我的下载</string>
 </resources>
