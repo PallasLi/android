@@ -1,0 +1,19 @@
+1. AndroidManifest.xml 
+   启动主页面   
+   			<activity ...>  
+   			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+   			<activity>  
+2. res.drawable图片
+   res.values常量
+   res.mipmap
+   res.layout布局
+
+
+
+activity模板类型
+basic 
+fullscreen

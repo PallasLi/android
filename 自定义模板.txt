@@ -1,0 +1,165 @@
+一、Android Studio的模板所在路径
+
+{Android Studio}/plugins/android/lib/templates/activities
+自制模板若无错误，直接拷至此目录下即可使用
+二、最简单的默认模板EmptyActivity介绍
+
+0、EmptyActivity目录结构
+
+EmptyActivity
+|- template.xml                     //创建Activity时的属性配置
+|- globals.xml.ftl                  //定义一些全局的设置
+|- recipe.xml.ftl                   //拷贝代码或文件的命令
+|- template_blank_activity.png      //效果图
+|- root
+    |- src
+        |- app_package
+            |- SimpleActivity.java.ftl      //被拷贝转化的代码
+1、template.xml 创建Activity时的属性配置
+
+配置界面 (文件写好后在使用时的界面)
+
+Markdown
+
+全部内容
+
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="Empty Activity"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates a new empty activity">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="activityClass"                              
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutName)}"
+        default="MainActivity"
+        help="The name of the activity class to create"/>
+
+    <parameter
+        id="generateLayout"
+        name="Generate Layout File"
+        type="boolean"
+        default="true"
+        help="If true, a layout file will be generated" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_main"
+        visibility="generateLayout"
+        help="The name of the layout to create for the activity" />
+
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+
+    <parameter
+        id="backwardsCompatibility"
+        name="Backwards Compatibility (AppCompat)"
+        type="boolean"
+        default="true"
+        help="If false, this activity base class will be Activity instead of AppCompatActivity" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
+< template /> 的 name 是AS创建Activity，选择模板时显示的名字；其他属性可直观看出，如最低可选择该模板的工程API版本。
+每个 < parameter /> 都对应于配置界面的一项属性选择，如activityClass(Activity的名字）、generateLayout（是否生成layout文件）等等。
+
+<!-- id             唯一标识 -->
+<!-- name           label提示语 -->
+<!-- type           输入值类型 -->
+<!-- constraints    填写值的约束 -->
+<!-- suggest        建议值 -->
+<!-- default        默认值 -->
+<!-- help           提示语 -->
+< thumbs /> 设置 效果图
+
+< globals /> 设置 全局设置文件
+< execute /> 执行 命令文件
+2、globals.xml.ftl 用于定义一些全局的设置
+
+<?xml version="1.0"?>
+<globals>
+    <global id="hasNoActionBar" type="boolean" value="false" />
+    <global id="parentActivityClass" value="" />
+    <global id="simpleLayoutName" value="${layoutName}" />
+    <global id="excludeMenu" type="boolean" value="true" />
+    <global id="generateActivityTitle" type="boolean" value="false" />
+    <#include "../common/common_globals.xml.ftl" />
+</globals>
+include 是指将目标文件中的代码也包含进来，如本例中包含进了通用全局设置文件
+${layoutName} 是变量名，定义于“template.xml”中的 < parameter />。
+3、recipe.xml.ftl 拷贝代码或文件的命令
+
+<?xml version="1.0"?>
+<recipe>
+    <#include "../common/recipe_manifest.xml.ftl" />
+
+<#if generateLayout>
+    <#include "../common/recipe_simple.xml.ftl" />
+    <open file="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
+</#if>
+
+    <instantiate from="root/src/app_package/SimpleActivity.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+</recipe>
+instantiate : 将ftl转化为java文件，并放置到目标目录。中间会通过一个步骤，将ftl中的变量都换成对应的值，那么完整的流程是ftl->freemarker process -> java。
+open : 在代码生成后，打开指定的文件，比如我们新建一个Activity后，默认就会将该Activity打开。
+include 的代码中包含：
+
+copy : 将源文件复制到目标目录，比如我们的模板Activity需要使用一些图标，那么可能就需要使用copy标签将这些图标拷贝到我们的项目对应文件夹。
+merge : 合并源文 件和目标文 件，如将模板中的strings.xml合并到项目中的stirngs.xml。
+4、SimpleActivity.java.ftl 将被转化的Activity代码（.java复制，.ftl转化）
+
+package ${packageName};
+
+import ${superClassFqcn};
+import android.os.Bundle;
+<#if includeCppSupport!false>
+import android.widget.TextView;
+</#if>
+
+public class ${activityClass} extends ${superClass} {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+<#if generateLayout>
+        setContentView(R.layout.${layoutName});
+</#if>
+<#include "../../../../common/jni_code_usage.java.ftl">
+    }
+<#include "../../../../common/jni_code_snippet.java.ftl">
+}
