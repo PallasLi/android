@@ -1,4 +1,5 @@
-
+*.iml
+local.properties
 */.classpath
 */.project
 */.settings/*
@@ -21,3 +22,8 @@
 */.idea/*
 */*/.idea/*
 */*/*/.idea/*
+
+*/bin/*
+*/*/app/build/*
+*/*/build/*
+*/*/.gradle/*

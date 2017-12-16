@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">pmqChat</string>
+    <string name="title_activity_login">登录</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录/注册</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_username">用户名无效</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">用户名或密码错误</string>
+    <string name="error_field_required">必输项</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_user_home">主页</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_user_fun_tab">UserFunTabActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

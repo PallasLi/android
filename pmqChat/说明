@@ -1,0 +1,7 @@
+WiFi内网连接手机
+
+设置port：adb tcpip 8888
+设置WiFi连接：adb connect ip:port
+
+adb kill-server
+adb start-server
