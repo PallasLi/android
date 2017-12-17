@@ -8,21 +8,22 @@ import android.widget.TextView;
 
 import cn.pallasli.pmqchat.R;
 import cn.pallasli.pmqchat.fragment.MessageItemFragment.OnListFragmentInteractionListener;
-import cn.pallasli.pmqchat.fragment.dummy.DummyContent.DummyItem;
+import cn.pallasli.pmqchat.fragment.dummy.MessageDummy;
+
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link MessageDummy.DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyMessageItemRecyclerViewAdapter extends RecyclerView.Adapter<MyMessageItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<MessageDummy.DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyMessageItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyMessageItemRecyclerViewAdapter(List<MessageDummy.DummyItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -38,7 +39,7 @@ public class MyMessageItemRecyclerViewAdapter extends RecyclerView.Adapter<MyMes
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).message);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MyMessageItemRecyclerViewAdapter extends RecyclerView.Adapter<MyMes
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public MessageDummy.DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
