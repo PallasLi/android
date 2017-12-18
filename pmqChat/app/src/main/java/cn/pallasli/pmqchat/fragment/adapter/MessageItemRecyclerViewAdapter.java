@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.pallasli.pmqchat.R;
@@ -34,9 +35,9 @@ public class MessageItemRecyclerViewAdapter extends RecyclerView.Adapter<Message
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
         holder.mFriendCaption.setText(mValues.get(position).friendCaption);
-        holder.mMessagetView.setText(mValues.get(position).friendCaption);
+        holder.mMessageView.setText("这是一条来自"+mValues.get(position).friendCaption+"的消息");
+        holder.mTimeView.setText("12:30");
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,22 +58,24 @@ public class MessageItemRecyclerViewAdapter extends RecyclerView.Adapter<Message
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mMessagetView;
+        public final ImageView  mIconView;
+        public final TextView mMessageView;
+        public final TextView mTimeView;
         public final TextView mFriendCaption;
         public MessageDummy.DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mMessagetView = (TextView) view.findViewById(R.id.message);
+            mIconView = (ImageView) view.findViewById(R.id.messageInfoIcon);
+            mMessageView = (TextView) view.findViewById(R.id.message);
+            mTimeView = (TextView) view.findViewById(R.id.messageInfoSendTime);
             mFriendCaption = (TextView) view.findViewById(R.id.friendCaption);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mMessagetView.getText() + "'";
+            return super.toString() + " '" + mMessageView.getText() + "'";
         }
     }
 }

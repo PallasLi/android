@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#0000"
+    android:orientation="horizontal">
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:textSize="18dp"
+        android:text="组织"/>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:textSize="18dp"
+        android:text="群组"/>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:textSize="18dp"
+        android:text="朋友"/>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:textSize="18dp"
+        android:text="设备"/>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:textSize="18dp"
+        android:text="附近的人"/>
+
+</LinearLayout>

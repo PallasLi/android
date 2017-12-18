@@ -3,11 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cn.pallasli.pmqchat.fragment.WorkbenchFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:orientation="vertical">
+        <include layout="@layout/tab_title_work" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#aab8a3"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+    </LinearLayout>
 </FrameLayout>

@@ -10,14 +10,6 @@ import android.view.ViewGroup;
 
 import cn.pallasli.pmqchat.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link LinkmanFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link LinkmanFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class LinkmanFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

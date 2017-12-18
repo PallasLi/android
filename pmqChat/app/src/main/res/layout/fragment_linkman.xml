@@ -5,8 +5,13 @@
     tools:context="cn.pallasli.pmqchat.fragment.LinkmanFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include layout="@layout/bottom_user_fun_tab" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/tab_title_linkman" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#aab8a3"/>
         <android.support.v4.view.ViewPager
             android:id="@+id/container"
             android:layout_width="match_parent"

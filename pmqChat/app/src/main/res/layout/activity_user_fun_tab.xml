@@ -13,15 +13,14 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
+            android:background="@android:color/holo_blue_light"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name">
@@ -39,8 +38,8 @@
 
     <include
         android:layout_gravity="end|bottom"
-        layout="@layout/bottom_user_fun_tab"
-        android:layout_height="65dp"
+        layout="@layout/tab_title_user_fun"
+        android:layout_height="55dp"
         android:layout_width="match_parent" />
 
 
