@@ -34,6 +34,6 @@
         android:layout_height="wrap_content"
         android:background="#0000"
         android:textSize="18dp"
-        android:text="附近的人"/>
+        android:text="附近"/>
 
 </LinearLayout>

@@ -78,7 +78,7 @@ public class UserFunTabActivity extends AppCompatActivity
         mMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(0);
+                mViewPager.setCurrentItem(1);
                 clearTabTileColor();
                 mMessage.setBackgroundColor(selectColor);
             }
@@ -86,7 +86,7 @@ public class UserFunTabActivity extends AppCompatActivity
         mLinkman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(1);
+                mViewPager.setCurrentItem(2);
                 clearTabTileColor();
                 mLinkman.setBackgroundColor(selectColor);
             }
@@ -94,7 +94,7 @@ public class UserFunTabActivity extends AppCompatActivity
         mWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(2);
+                mViewPager.setCurrentItem(3);
                 clearTabTileColor();
                 mWork.setBackgroundColor(selectColor);
             }
@@ -102,7 +102,7 @@ public class UserFunTabActivity extends AppCompatActivity
         mDynamic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(3);
+                mViewPager.setCurrentItem(4);
                 clearTabTileColor();
                 mDynamic.setBackgroundColor(selectColor);
             }
@@ -110,7 +110,7 @@ public class UserFunTabActivity extends AppCompatActivity
         mTools.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(4);
+                mViewPager.setCurrentItem(5);
                 clearTabTileColor();
                 mTools.setBackgroundColor(selectColor);
             }
@@ -132,19 +132,26 @@ public class UserFunTabActivity extends AppCompatActivity
             @Override
             public void onPageSelected(int position) {
                 clearTabTileColor();
-                if(position==0){
+                if(position==1){
                     mMessage.setBackgroundColor(selectColor);
                 }else
-                if(position==1){
+                if(position==2){
                     mLinkman.setBackgroundColor(selectColor);
                 }else
-                if(position==2){
+                if(position==3){
                     mWork.setBackgroundColor(selectColor);
                 }else
-                if(position==3){
+                if(position==4){
                     mDynamic.setBackgroundColor(selectColor);
-                }else {
+                }else
+                if(position==5) {
                     mTools.setBackgroundColor(selectColor);
+                }else if ( position < 1) {
+                    position = 5;
+                    mViewPager.setCurrentItem(position,false);
+                } else if ( position > 5) { //末位之后，跳转到首位（1）
+                    mViewPager.setCurrentItem(1,false); //false:不显示跳转过程的动画
+                    position = 1;
                 }
             }
 
@@ -153,6 +160,7 @@ public class UserFunTabActivity extends AppCompatActivity
 
             }
         });
+        mViewPager.setCurrentItem(1,false);
 
     }
 
@@ -191,25 +199,28 @@ public class UserFunTabActivity extends AppCompatActivity
         }
         @Override
         public Fragment getItem(int position) {
-            if(position==0){
+            if(position==1){
                 return MessageItemFragment.newInstance(1);
             }else
-            if(position==1){
+            if(position==2){
                 return LinkmanFragment.newInstance("","");
             }else
-            if(position==2){
+            if(position==3){
                 return   WorkbenchFragment.newInstance("","");
             }else
-            if(position==3){
+            if(position==4){
                 return SocialityFragment.newInstance("","");
-            }else {
+            }else
+            if(position==5){
                 return ToolsFragment.newInstance("","");
+            }else{
+                return MessageItemFragment.newInstance(1);
             }
         }
 
         @Override
         public int getCount() {
-            return 5;
+            return 7;
         }
 
 
