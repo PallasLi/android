@@ -16,19 +16,27 @@ import android.view.View;
 
 import android.widget.ImageButton;
 
+import cn.pallasli.pmqchat.fragment.FriendsFragment;
+import cn.pallasli.pmqchat.fragment.GroupsFragment;
+import cn.pallasli.pmqchat.fragment.MyDevicesFragment;
+import cn.pallasli.pmqchat.fragment.NearByPeopleFragment;
+import cn.pallasli.pmqchat.fragment.OrganizationsFragment;
+import cn.pallasli.pmqchat.fragment.TmpBlankFragment;
 import cn.pallasli.pmqchat.fragment.LinkmanFragment;
-import cn.pallasli.pmqchat.fragment.MessageItemFragment;
+import cn.pallasli.pmqchat.fragment.MessagesFragment;
 import cn.pallasli.pmqchat.fragment.SocialityFragment;
 import cn.pallasli.pmqchat.fragment.ToolsFragment;
 import cn.pallasli.pmqchat.fragment.WorkbenchFragment;
+import cn.pallasli.pmqchat.fragment.dummy.DummyContent;
 import cn.pallasli.pmqchat.fragment.dummy.MessageDummy;
 
 public class UserFunTabActivity extends AppCompatActivity
         implements LinkmanFragment.OnFragmentInteractionListener,
-        MessageItemFragment.OnListFragmentInteractionListener ,
+        MessagesFragment.OnListFragmentInteractionListener ,
         WorkbenchFragment.OnFragmentInteractionListener,
         ToolsFragment.OnFragmentInteractionListener,
-        SocialityFragment.OnFragmentInteractionListener{
+        SocialityFragment.OnFragmentInteractionListener,
+        TmpBlankFragment.OnFragmentInteractionListener{
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -53,12 +61,6 @@ public class UserFunTabActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_fun_tab);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,12 @@ public class UserFunTabActivity extends AppCompatActivity
 //        });
 
 
+        setContentView(R.layout.activity_user_fun_tab);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
         mMessage= (ImageButton) findViewById(R.id.id_tab_message_img);
         mLinkman= (ImageButton) findViewById(R.id.id_tab_linkman_img);
         mWork= (ImageButton) findViewById(R.id.id_tab_work_img);
@@ -79,40 +87,30 @@ public class UserFunTabActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(1);
-                clearTabTileColor();
-                mMessage.setBackgroundColor(selectColor);
             }
         });
         mLinkman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(2);
-                clearTabTileColor();
-                mLinkman.setBackgroundColor(selectColor);
             }
         });
         mWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(3);
-                clearTabTileColor();
-                mWork.setBackgroundColor(selectColor);
             }
         });
         mDynamic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(4);
-                clearTabTileColor();
-                mDynamic.setBackgroundColor(selectColor);
             }
         });
         mTools.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(5);
-                clearTabTileColor();
-                mTools.setBackgroundColor(selectColor);
             }
         });
 
@@ -123,7 +121,7 @@ public class UserFunTabActivity extends AppCompatActivity
 //
 //            }
 //        });
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -192,6 +190,7 @@ public class UserFunTabActivity extends AppCompatActivity
 
 
 
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -200,7 +199,7 @@ public class UserFunTabActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position) {
             if(position==1){
-                return MessageItemFragment.newInstance(1);
+                return MessagesFragment.newInstance(1);
             }else
             if(position==2){
                 return LinkmanFragment.newInstance("","");
@@ -214,7 +213,7 @@ public class UserFunTabActivity extends AppCompatActivity
             if(position==5){
                 return ToolsFragment.newInstance("","");
             }else{
-                return MessageItemFragment.newInstance(1);
+                return TmpBlankFragment.newInstance("","");
             }
         }
 

@@ -6,30 +6,35 @@
     android:orientation="horizontal">
 
     <Button
+        android:id="@+id/organizations"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="#0000"
         android:textSize="18dp"
         android:text="组织"/>
     <Button
+        android:id="@+id/groups"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="#0000"
         android:textSize="18dp"
         android:text="群组"/>
     <Button
+        android:id="@+id/friends"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="#0000"
         android:textSize="18dp"
         android:text="朋友"/>
     <Button
+        android:id="@+id/myDevices"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="#0000"
         android:textSize="18dp"
         android:text="设备"/>
     <Button
+        android:id="@+id/nearby"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="#0000"

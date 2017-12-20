@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import cn.pallasli.pmqchat.R;
-import cn.pallasli.pmqchat.fragment.GroupItemFragment.OnListFragmentInteractionListener;
+import cn.pallasli.pmqchat.fragment.GroupsFragment.OnListFragmentInteractionListener;
 import cn.pallasli.pmqchat.fragment.dummy.DummyContent.DummyItem;
 
 import java.util.List;

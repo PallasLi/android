@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.pallasli.pmqchat.R;
-import cn.pallasli.pmqchat.fragment.MessageItemFragment.OnListFragmentInteractionListener;
+import cn.pallasli.pmqchat.fragment.MessagesFragment.OnListFragmentInteractionListener;
 import cn.pallasli.pmqchat.fragment.dummy.MessageDummy;
 
 
