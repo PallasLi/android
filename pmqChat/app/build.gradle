@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
     defaultConfig {
         applicationId "cn.pallasli.pmqchat"
         minSdkVersion 21

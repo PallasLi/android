@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,9 +33,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.StanzaListener;
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.packet.Stanza;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
+
+import cn.pallasli.pmq.server.LoginManager;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -146,18 +168,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
         if (cancel) {
             focusView.requestFocus();
         } else {
-            showProgress(true);
+//            showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+//            mAuthTask.execute((Void) null);
+            mAuthTask.login(1);
         }
     }
 
@@ -262,25 +279,212 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUser;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String user, String password) {
+            mUser = user;
             mPassword = password;
+        }
+        public static final int SHOW_RESPONSE = 0;
+        //新建Handler的对象，在这里接收Message，然后更新TextView控件的内容
+        private Handler handler = new Handler() {
+
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case SHOW_RESPONSE:
+                        String response = (String) msg.obj;
+                        if (!response.equals("")) {
+                            Intent intent=new Intent(LoginActivity.this,UserFunTabActivity.class);
+                            startActivity(intent);
+
+                        } else {
+                            mPasswordView.setError(getString(R.string.error_incorrect_password));
+                            mPasswordView.requestFocus();
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+        };
+
+        public void login(int type) {
+                switch(type){
+                    /**建立网络连接*/
+                    case 0:
+                        String httpUrl = "http://192.168.1.156/app/print";
+                        httpUrl = "http://172.16.12.1:8080/test/login";
+                        /**异步类解决网络操作不能在主线程*/
+                        new AsyncTask<String, Void, String>(){
+                            @Override
+                            protected String doInBackground(String... params) {
+                                String httpUrl = params[0];
+                                try {
+                                    URL url = new URL(httpUrl);
+                                    HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+                                    connect.setRequestMethod("GET");
+                                    connect.connect();
+
+                                    String str = "";
+                                    int statusCode = connect.getResponseCode();
+                                    if(statusCode == 200){
+                                        str = readStr(connect.getInputStream());
+                                    }
+                                    return str;
+
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return null;
+
+                            }
+                            protected void onPostExecute(String result) {
+                                if (result!=null) {
+                                    Intent intent=new Intent(LoginActivity.this,UserFunTabActivity.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                                    mPasswordView.requestFocus();
+                                }
+                            }
+                        }.execute(httpUrl);
+
+                        break;
+
+                    case 1:
+                        /**GET请求方法*/
+                        httpUrl = "http://172.16.12.1:8080/test/login";
+                        String userName = "lyt";
+                        try {
+                            userName = URLEncoder.encode(userName, "UTF-8");
+                        } catch (UnsupportedEncodingException e1) {
+                            e1.printStackTrace();
+                        }
+                        httpUrl = httpUrl + "?user="+userName+"&password=lyt";
+
+                        /**异步类解决网络操作不能在主线程*/
+                        new AsyncTask<String, Void, String>(){
+                            @Override
+                            protected String doInBackground(String... params) {
+                                String httpUrl = params[0];
+                                try {
+                                    URL url = new URL(httpUrl);
+                                    HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+                                    connect.setRequestMethod("GET");
+                                    connect.connect();
+
+                                    String str = readStr(connect.getInputStream());
+                                    return str;
+
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return null;
+
+                            }
+                            protected void onPostExecute(String result) {
+                                if (result!=null) {
+                                    Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                                    mPasswordView.requestFocus();
+                                }
+                            }
+                        }.execute(httpUrl);
+
+
+                        break;
+                    case 2:
+                        /**POST请求方法*/
+                        httpUrl = "http://172.16.12.1:8080/test/login";
+                        /**异步类解决网络操作不能在主线程*/
+                        new AsyncTask<String, Void, String>(){
+                            @Override
+                            protected String doInBackground(String... params) {
+
+                                String httpUrl = params[0];
+                                try {
+                                    URL url = new URL(httpUrl);
+                                    HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+                                    connect.setRequestMethod("POST");
+                                    connect.connect();
+
+                                    OutputStream os = connect.getOutputStream();
+                                    PrintWriter writer = new PrintWriter(os);
+                                    writer.print("user=张三&psw=123456");
+                                    writer.flush();
+
+                                    String str = readStr(connect.getInputStream());
+
+                                    connect.disconnect();
+                                    return str;
+
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return null;
+
+                            }
+                            protected void onPostExecute(String result) {
+                                if (result!=null) {
+                                    Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                                    mPasswordView.requestFocus();
+                                }
+                            }
+                        }.execute(httpUrl);
+                        break;
+                }
+            }
+            /**
+             * 从输入流读数据
+             * @param is
+             * @return
+             * @throws IOException
+             */
+        public String readStr(InputStream is) throws IOException{
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while((line=reader.readLine()) != null){
+                sb.append(line);
+            }
+            reader.close();
+            is.close();
+            return sb.toString();
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             Log.e(LoginActivity.class.getName(),"adsfsa");
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
+
+
+
+//            for (String credential : DUMMY_CREDENTIALS) {
+//                String[] pieces = credential.split(":");
+//                if (pieces[0].equals(mEmail)) {
+//                    // Account exists, return true if the password matches.
+//                    return pieces[1].equals(mPassword);
+//                }
+//            }
 
             return true;
         }
@@ -290,14 +494,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
-                    Intent intent=new Intent(LoginActivity.this,UserFunTabActivity.class);
-                    startActivity(intent);
 
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
         }
 
         @Override
