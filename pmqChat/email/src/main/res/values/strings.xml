@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Email</string>
+    <string name="title_activity_email_received">EmailReceivedActivity</string>
+</resources>

@@ -4,22 +4,23 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/main_nav_my_skin"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="我的皮肤" />
+        <item
+            android:id="@+id/main_nav_my_favorite"
             android:icon="@drawable/ic_menu_camera"
             android:title="我的收藏" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/main_nav_my_album"
             android:icon="@drawable/ic_menu_gallery"
             android:title="我的相册" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/main_nav_my_files"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="我的文件" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
     </group>
 
     <item android:title="Communicate" >

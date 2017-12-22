@@ -21,6 +21,7 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import cn.pallasli.pmqchat.fragment.FriendsFragment;
 import cn.pallasli.pmqchat.fragment.GroupsFragment;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         mDynamic.setBackgroundColor(unSelectColor);
         mTools.setBackgroundColor(unSelectColor);
     }
+    DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -96,14 +98,23 @@ public class MainActivity extends AppCompatActivity
         View headerView=navigationView.getHeaderView(0);
 
         LinearLayout userIcon=headerView.findViewById(R.id.header_user);
+        TextView  userSignature=headerView.findViewById(R.id.header_user_sign);
         userIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,UserInfoActivity.class);
                 startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
             }
         });
-
+        userSignature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,UserSignatrueActivity.class);
+                startActivity(intent);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
 
         mSectionsPagerAdapter = new MainActivity.SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -208,7 +219,6 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -222,21 +232,19 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.main_nav_my_skin) {
+            Intent intent=new Intent(MainActivity.this,MySkinActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.main_nav_my_favorite) {
+            Intent intent=new Intent(MainActivity.this,MyFavoriteActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.main_nav_my_files) {
+            Intent intent=new Intent(MainActivity.this,MyFilesActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.main_nav_my_album) {
+            Intent intent=new Intent(MainActivity.this,MyAlbumActivity.class);
+            startActivity(intent);
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

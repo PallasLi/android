@@ -1,13 +1,19 @@
 package cn.pallasli.pmqchat.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
+import cn.pallasli.hr.HrEmployeeActivity;
+import cn.pallasli.pmqchat.MainActivity;
+import cn.pallasli.pmqchat.MySkinActivity;
 import cn.pallasli.pmqchat.R;
 
 
@@ -66,7 +72,16 @@ public class WorkbenchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_workbench, container, false);
+        View rootView=inflater.inflate(R.layout.fragment_workbench, container, false);
+        ImageButton hr=rootView.findViewById(R.id.hr_employee);
+        hr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(),HrEmployeeActivity.class);
+                startActivity(intent);
+            }
+        });
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
