@@ -18,7 +18,7 @@ import android.widget.TextView;
 import cn.pallasli.pmqchat.R;
 import cn.pallasli.pmqchat.UserFunTabActivity;
 import cn.pallasli.pmqchat.fragment.dummy.DummyContent;
-import cn.pallasli.pmqchat.layout.NoScrollViewPager;
+import cn.pallasli.layout.NoScrollViewPager;
 
 public class LinkmanFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match

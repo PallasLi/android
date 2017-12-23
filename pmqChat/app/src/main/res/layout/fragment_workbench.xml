@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="考勤系统"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/report_month"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="人事系统"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/employ_leave"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="办公系统"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
@@ -168,7 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/stock"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="财务系统"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
@@ -193,7 +193,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/expense"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -207,14 +207,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="客户管理"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/bpm"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -224,14 +224,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="项目管理"/>
-            <cn.pallasli.pmqchat.layout.FlowLinearLayout
+            <cn.pallasli.layout.FlowLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/bpm"/>
-            </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+            </cn.pallasli.layout.FlowLinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"

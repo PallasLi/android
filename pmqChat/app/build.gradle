@@ -31,6 +31,8 @@ dependencies {
     compile 'org.igniterealtime.smack:smack-im:4.1.6'
     compile 'org.igniterealtime.smack:smack-extensions:4.1.6'
     compile 'com.google.code.gson:gson:2.6.2'
+    compile project(':layout')
+    compile project(':mylibrary')
     compile project(':hr')
     compile project(':pm')
 //    compile project(':oa')

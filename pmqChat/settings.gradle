@@ -1,1 +1,1 @@
-include ':app', ':meeting', ':crm', ':kpi', ':hr', ':oa', ':pm', ':financial', ':dailylife', ':chat', ':email', ':sysmanager'
+include ':app', ':meeting', ':crm', ':kpi', ':hr', ':oa', ':pm', ':financial', ':dailylife', ':chat', ':email', ':sysmanager', ':layout', ':bpm', ':mylibrary'

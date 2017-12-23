@@ -10,7 +10,7 @@
         android:scrollbars="vertical"
         android:fadingEdge="vertical"
         android:layout_gravity="center">
-    <cn.pallasli.pmqchat.layout.FlowLinearLayout
+    <cn.pallasli.layout.FlowLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -520,6 +520,6 @@
                 android:text="审批" />
         </LinearLayout>
 
-    </cn.pallasli.pmqchat.layout.FlowLinearLayout>
+    </cn.pallasli.layout.FlowLinearLayout>
     </ScrollView>
 </FrameLayout>

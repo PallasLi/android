@@ -1,4 +1,4 @@
-package cn.pallasli.pmqchat.layout;
+package cn.pallasli.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;

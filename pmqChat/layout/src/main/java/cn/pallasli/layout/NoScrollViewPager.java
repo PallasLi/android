@@ -1,4 +1,4 @@
-package cn.pallasli.pmqchat.layout;
+package cn.pallasli.layout;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -9,7 +9,7 @@ import android.view.MotionEvent;
  * Created by Administrator on 2017/12/20.
  */
 
-public class NoScrollViewPager  extends ViewPager {
+public class NoScrollViewPager extends ViewPager {
     private boolean noScroll = false;
 
     public NoScrollViewPager(Context context, AttributeSet attrs) {

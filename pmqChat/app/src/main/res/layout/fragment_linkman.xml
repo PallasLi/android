@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#aab8a3"/>
-        <cn.pallasli.pmqchat.layout.NoScrollViewPager
+        <cn.pallasli.layout.NoScrollViewPager
             android:id="@+id/container2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
