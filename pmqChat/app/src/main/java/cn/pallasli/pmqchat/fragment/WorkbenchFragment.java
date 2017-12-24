@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import cn.pallasli.hr.HrEmployeeActivity;
+//import cn.pallasli.hr.HrEmployeeActivity;
 import cn.pallasli.pmqchat.MainActivity;
 import cn.pallasli.pmqchat.MySkinActivity;
 import cn.pallasli.pmqchat.R;
@@ -77,8 +77,8 @@ public class WorkbenchFragment extends Fragment {
         hr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),HrEmployeeActivity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(getActivity(),HrEmployeeActivity.class);
+//                startActivity(intent);
             }
         });
         return rootView;
