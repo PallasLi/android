@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".HrEmployeeActivity"></activity>
+        <activity android:name=".HrEmployeeActivity" />
         <activity android:name=".HrMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,20 @@
         </activity>
         <activity
             android:name=".HrEmployeeRegistrationActivity"
-            android:label="@string/title_activity_hr_employee_registration"></activity>
+            android:label="@string/title_activity_hr_employee_registration" />
+        <activity android:name=".HrEmployeeDetailActivity" />
+        <activity android:name=".HrEmployeeAddActivity" />
+        <activity android:name=".HrEmployeeBeRegularActivity" />
+        <activity android:name=".HrEmployeeApplyRegularActivity" />
+        <activity android:name=".HrEmployeeApplyLeaveOfficeActivity" />
+        <activity android:name=".HrEmployeeApplyPortExchangeActivity" />
+        <activity android:name=".HrEmployeeListActivity" />
+        <activity android:name=".HrEmployeeLeaveOfficeListActivity" />
+        <activity android:name=".HrEmployeePortExchangeListActivity" />
+        <activity android:name=".HrEmployeeRegularListActivity" />
+        <activity android:name=".JournalDailyReportActivity" />
+        <activity android:name=".JournalMonthReportActivity" />
+        <activity android:name=".JournalWeekReportActivity"></activity>
     </application>
 
 </manifest>
