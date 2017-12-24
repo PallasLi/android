@@ -39,6 +39,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:text="烦恼是一天，快乐也是一天" />
+        android:text="龙兴江川开四海，虎走山脊定八方" />
 
 </LinearLayout>
