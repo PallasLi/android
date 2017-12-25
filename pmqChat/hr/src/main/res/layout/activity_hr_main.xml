@@ -19,7 +19,51 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-             <LinearLayout
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="人事系统"/>
+                <cn.pallasli.layout.FlowLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:id="@+id/hr_employee_registration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/hr_employee_registration"/>
+                    <ImageButton
+                        android:id="@+id/hr_employee_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/hr_employee_add"/>
+                    <ImageButton
+                        android:id="@+id/hr_employee_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/hr_employee_regular"/>
+                    <ImageButton
+                        android:id="@+id/hr_employee_port_exchange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/hr_employee_port_exchange"/>
+                    <ImageButton
+                        android:id="@+id/hr_employee_leave_office"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/hr_employee_leave_office"/>
+                </cn.pallasli.layout.FlowLinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#aab8a3"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -31,41 +75,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageButton
+                        android:id="@+id/duty_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/work_sign"/>
+                        android:src="@mipmap/duty_sign"/>
                     <ImageButton
+                        android:id="@+id/duty_extra"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/work_extra"/>
+                        android:src="@mipmap/duty_extra"/>
                     <ImageButton
+                        android:id="@+id/duty_leave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/work_leave"/>
+                        android:src="@mipmap/duty_leave"/>
                     <ImageButton
+                        android:id="@+id/duty_travel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/work_travel"/>
+                        android:src="@mipmap/duty_travel"/>
                     <ImageButton
+                        android:id="@+id/duty_out"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/work_out"/>
+                        android:src="@mipmap/duty_out"/>
                     <ImageButton
+                        android:id="@+id/duty_exchange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/daily"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/report_day"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/report_week"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/report_month"/>
+                        android:src="@mipmap/duty_exchange"/>
                 </cn.pallasli.layout.FlowLinearLayout>
             </LinearLayout>
             <View
@@ -79,38 +117,28 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="人事系统"/>
+                    android:text="日志系统"/>
                 <cn.pallasli.layout.FlowLinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageButton
-                        android:id="@+id/hr_employee"
+                        android:id="@+id/journal_daily_report"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/recruit"/>
+                        android:src="@mipmap/journal_daily_report"/>
                     <ImageButton
-                        android:id="@+id/hr_employee_registration"
+                        android:id="@+id/journal_week_report"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/hr_employee_registration"/>
+                        android:src="@mipmap/journal_week_report"/>
                     <ImageButton
+                        android:id="@+id/journal_month_report"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/employ_add"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/employ_regular"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/port_exchange"/>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/employ_leave"/>
+                        android:src="@mipmap/journal_month_report"/>
                 </cn.pallasli.layout.FlowLinearLayout>
             </LinearLayout>
+
          </LinearLayout>
     </ScrollView>
 

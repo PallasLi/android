@@ -32,7 +32,13 @@
         <activity android:name=".HrEmployeeRegularListActivity" />
         <activity android:name=".JournalDailyReportActivity" />
         <activity android:name=".JournalMonthReportActivity" />
-        <activity android:name=".JournalWeekReportActivity"></activity>
+        <activity android:name=".JournalWeekReportActivity" />
+        <activity android:name=".DutySignActivity" />
+        <activity android:name=".DutyExtraActivity" />
+        <activity android:name=".DutyLeaveActivity" />
+        <activity android:name=".DutyTravelActivity" />
+        <activity android:name=".DutyOutActivity" />
+        <activity android:name=".DutyExchangeActivity"></activity>
     </application>
 
 </manifest>
