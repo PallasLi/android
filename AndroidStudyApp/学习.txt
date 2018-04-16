@@ -1,7 +1,0 @@
-1. res/layout/activity_*.xml 页面定义
-2. *Activity.java 业务处理
-3. res/values/strings.xml 字符串常量定义
-   res/values/dimens.xml 
-   res/values/styles.xml 
-   res/values-v* 不同api版本的定义
-4. res/menu/main.xml 
