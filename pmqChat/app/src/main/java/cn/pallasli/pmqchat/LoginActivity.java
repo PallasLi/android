@@ -55,7 +55,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import cn.pallasli.pmq.server.LoginManager;
+//import cn.pallasli.pmq.server.LoginManager;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
